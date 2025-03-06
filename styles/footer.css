@@ -50,6 +50,11 @@ footer > div {
   flex-shrink: 0;
 }
 
+.footer-sns > li > a {
+  display: flex;
+  align-items: center;
+}
+
 .footer-sns img {
   width: 20px;
   height: 20px;
