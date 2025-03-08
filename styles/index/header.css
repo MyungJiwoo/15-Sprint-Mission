@@ -11,7 +11,7 @@ header {
   top: 0;
   z-index: 100;
 
-  background-color: #ffffff;
+  background-color: var(--white);
 }
 
 .image-logo {
@@ -31,12 +31,12 @@ header {
   align-items: center;
 
   border-radius: 8px;
-  background-color: #3692ff;
+  background-color: var(--blue);
 
   font-weight: 600;
   font-size: 16px;
   line-height: 26px;
-  color: #ffffff;
+  color: var(--white);
 
   cursor: pointer;
 }

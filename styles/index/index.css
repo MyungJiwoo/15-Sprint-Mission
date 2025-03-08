@@ -1,0 +1,9 @@
+@import url("/styles/base.css");
+@import url("/styles/index/header.css");
+@import url("/styles/index/banner.css");
+@import url("/styles/index/section.css");
+@import url("/styles/index/footer.css");
+
+/* 반응형 */
+@import url("/styles/index/indexTablet.css");
+@import url("/styles/index/indexPhone.css");

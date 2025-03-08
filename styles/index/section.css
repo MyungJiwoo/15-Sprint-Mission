@@ -42,7 +42,7 @@ section img {
   font-weight: 700;
   font-size: 18px;
   line-height: 26px;
-  color: #3692ff;
+  color: var(--blue);
 }
 
 .section-content {
@@ -51,5 +51,5 @@ section img {
   font-weight: 500;
   font-size: 24px;
   line-height: 32px;
-  color: #374151;
+  color: var(--gray700);
 }

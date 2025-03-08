@@ -6,7 +6,7 @@ footer {
   justify-content: center;
   align-items: center;
 
-  background-color: #111827;
+  background-color: var(--gray900);
 }
 
 footer > div {
@@ -25,7 +25,7 @@ footer > div {
   line-height: 19px;
   text-align: center;
   text-wrap: nowrap;
-  color: #9ca3af;
+  color: var(--gray300);
 
   flex-shrink: 0;
 }
@@ -40,7 +40,7 @@ footer > div {
 
 .footer-links > a,
 .footer-links > a:visited {
-  color: #ffffff;
+  color: var(--white);
 }
 
 .footer-sns {
