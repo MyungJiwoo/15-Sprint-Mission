@@ -1,0 +1,49 @@
+form {
+  width: 100%;
+  margin-top: 40px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+
+  color: var(--gray800);
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 26px;
+}
+
+input {
+  margin-top: 16px;
+  padding: 16px 24px;
+
+  border: 2px solid #3182f600;
+  border-radius: 12px;
+
+  color: var(--gray800);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 26px;
+  background-color: var(--gray100);
+}
+
+input:focus {
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 16px 0;
+  border-radius: 40px;
+  border: none;
+  text-align: center;
+  color: var(--gray100);
+  font-size: 20px;
+  font-weight: 600;
+  background-color: var(--blue);
+
+  cursor: pointer;
+}

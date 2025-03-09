@@ -1,0 +1,12 @@
+.loginContainer {
+  width: 40rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-logo {
+  width: 25rem;
+  height: auto;
+}
