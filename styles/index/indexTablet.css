@@ -2,45 +2,45 @@
 @media screen and (min-width: 768px) and (max-width: 1100px) {
   /* header */
   header {
-    padding: 10px 120px;
+    padding: 0.625rem 7.5rem;
   }
 
   .btn-login {
-    width: 76px;
-    height: 40px;
+    width: 4.75rem;
+    height: 2.5rem;
   }
 
   /* banner */
   .home-top-banner {
-    padding-top: 120px;
+    padding-top: 7.5rem;
   }
 
   .banner-title,
   .section-title {
-    font-size: 24px;
-    line-height: 33px;
+    font-size: 1.5rem;
+    line-height: 2rem;
   }
 
   .image-top-banner {
-    width: 447px;
+    width: 27.9375rem;
     height: auto;
   }
 
   .banner-content {
-    width: 214px;
+    width: 13.375rem;
   }
 
   .btn-explore {
-    padding: 10px;
-    margin-top: 10px;
+    padding: 0.625rem;
+    margin-top: 0.625rem;
   }
 
   .bottom-banner {
-    padding-top: 100px;
+    padding-top: 6.25rem;
   }
 
   .image-bottom-banner {
-    width: 400px;
+    width: 25rem;
     height: auto;
   }
 
@@ -48,31 +48,31 @@
   .section-hot-item,
   .section-search,
   .section-register {
-    width: 600px;
-    height: 266px;
-    margin: 82px 0;
-    gap: 30px;
+    width: 37.5rem;
+    height: 16.625rem;
+    margin: 5.125rem 0;
+    gap: 1.875rem;
   }
 
   section img {
-    width: 358px;
-    height: 266px;
+    width: 22.375rem;
+    height: 16.625rem;
   }
 
   .section-badge {
-    margin-bottom: 7px;
-    font-size: 12px;
-    line-height: 15px;
+    margin-bottom: 0.4rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 
   .section-content {
-    margin-top: 14px;
-    font-size: 14px;
-    line-height: 19px;
+    margin-top: 0.875rem;
+    font-size: 0.875rem;
+    line-height: 1.1875rem;
   }
 
   /* footer */
   footer > div {
-    padding: 0 120px;
+    padding: 0 7.5rem;
   }
 }

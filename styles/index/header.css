@@ -1,7 +1,7 @@
 header {
   max-width: 1920px;
   width: 100%;
-  padding: 10px 200px;
+  padding: 0.625rem 12.5rem;
 
   display: flex;
   justify-content: space-between;
@@ -15,27 +15,27 @@ header {
 }
 
 .image-logo {
-  width: 153px;
+  width: 9.5rem;
   flex-shrink: 0;
 
   cursor: pointer;
 }
 
 .btn-login {
-  width: 128px;
-  height: 48px;
+  width: 8rem;
+  height: 3rem;
 
   flex-shrink: 0;
   display: flex;
   justify-content: center;
   align-items: center;
 
-  border-radius: 8px;
+  border-radius: 0.5rem;
   background-color: var(--blue);
 
   font-weight: 600;
-  font-size: 16px;
-  line-height: 26px;
+  font-size: 1rem;
+  line-height: 1.625rem;
   color: var(--white);
 
   cursor: pointer;

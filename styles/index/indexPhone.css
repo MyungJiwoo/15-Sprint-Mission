@@ -1,52 +1,56 @@
 /* 반응형 : 핸드폰 (모바일의 0.6배) */
 @media screen and (max-width: 767px) {
+  body {
+    padding-top: 1rem;
+  }
+
   /* header */
   header {
-    padding: 10px 72px;
+    padding: 0.625rem 4.5rem;
   }
 
   .image-logo {
-    width: 91px;
+    width: 6rem;
   }
 
   .btn-login {
-    width: 55px;
-    height: 24px;
-    font-size: 12px;
+    width: 3.43rem;
+    height: 1.5rem;
+    font-size: 0.75rem;
   }
 
   /* banner */
   .home-top-banner {
-    padding-top: 72px;
+    padding-top: 6rem;
   }
 
   .banner-title,
   .section-title {
-    font-size: 16px;
-    line-height: 20px;
+    font-size: 1rem;
+    line-height: 1.25rem;
   }
 
   .image-top-banner {
-    width: 268px;
+    width: 16.75rem;
     height: auto;
   }
 
   .banner-content {
-    width: 128px;
+    width: 8rem;
   }
 
   .btn-explore {
-    padding: 8px;
-    margin-top: 10px;
-    font-size: 12px;
+    padding: 0.5rem;
+    margin-top: 0.625rem;
+    font-size: 0.75rem;
   }
 
   .bottom-banner {
-    padding-top: 60px;
+    padding-top: 3.75rem;
   }
 
   .image-bottom-banner {
-    width: 240px;
+    width: 15rem;
     height: auto;
   }
 
@@ -54,57 +58,57 @@
   .section-hot-item,
   .section-search,
   .section-register {
-    width: 420px;
-    height: 160px;
-    margin: 49px 0;
-    gap: 15px;
+    width: 26.25rem;
+    height: 10rem;
+    margin: 3rem 0;
+    gap: 0.9rem;
   }
 
   section img {
-    width: 214px;
-    height: 159px;
+    width: 13.375rem;
+    height: 9.9375rem;
   }
 
   .section-badge {
-    margin-bottom: 9px;
-    font-size: 10px;
-    line-height: 12px;
+    margin-bottom: 0.56rem;
+    font-size: 0.625rem;
+    line-height: 0.75rem;
   }
 
   .section-content {
-    margin-top: 12px;
-    font-size: 12px;
-    line-height: 15px;
+    margin-top: 0.75rem;
+    font-size: 0.75rem;
+    line-height: 1rem;
   }
 
   /* footer */
   footer {
-    padding: 19px 0 64px;
+    padding: 1.1875rem 0 4rem;
   }
 
   footer > div {
-    padding: 0 72px;
+    padding: 0 4.5rem;
   }
 
   .footer-company {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .footer-links {
-    gap: 10px;
+    gap: 0.625rem;
   }
 
   .footer-sns {
-    gap: 5px;
+    gap: 0.3125rem;
   }
 
   .footer-links > a,
   .footer-links > a:visited {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
 
   .footer-sns img {
-    width: 15px;
-    height: 15px;
+    width: 1rem;
+    height: 1rem;
   }
 }
