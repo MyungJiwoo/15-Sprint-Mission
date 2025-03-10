@@ -10,6 +10,7 @@
 @import url(/styles/account/accountPhone.css);
 
 body {
+  padding: 4.5rem 0;
   display: flex;
   flex-direction: column;
   align-items: center;

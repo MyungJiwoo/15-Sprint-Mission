@@ -1,9 +1,5 @@
 /* 반응형 : 핸드폰 (모바일의 0.6배) */
 @media screen and (max-width: 767px) {
-  body {
-    padding-top: 1rem;
-  }
-
   /* header */
   header {
     padding: 0.625rem 4.5rem;
