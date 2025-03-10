@@ -9,6 +9,7 @@ form {
 label {
   display: flex;
   flex-direction: column;
+  position: relative;
 
   color: var(--gray800);
   font-size: 18px;
@@ -34,6 +35,10 @@ input:focus {
   outline: none;
 }
 
+input[type="password"] {
+  padding-right: 52px;
+}
+
 button {
   width: 100%;
   padding: 16px 0;
@@ -44,6 +49,18 @@ button {
   font-size: 20px;
   font-weight: 600;
   background-color: var(--blue);
+
+  cursor: pointer;
+}
+
+.passwordVisibilityOn {
+  width: 24px;
+  height: 24px;
+
+  position: absolute;
+  right: 24px;
+  top: calc(22px + 50%);
+  transform: translateY(-50%);
 
   cursor: pointer;
 }
