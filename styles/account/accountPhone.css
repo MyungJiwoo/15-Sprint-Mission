@@ -1,0 +1,10 @@
+/* 반응형 : 핸드폰 */
+@media screen and (max-width: 767px) {
+  .loginContainer {
+    width: 60%;
+  }
+
+  .image-logo {
+    width: 15rem;
+  }
+}

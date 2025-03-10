@@ -6,6 +6,9 @@
 @import url(/styles/account/soicalLogin.css);
 @import url(/styles/account/footer.css);
 
+@import url(/styles/account/accountTablet.css);
+@import url(/styles/account/accountPhone.css);
+
 body {
   display: flex;
   flex-direction: column;
