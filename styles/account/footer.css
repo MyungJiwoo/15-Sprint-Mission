@@ -1,0 +1,13 @@
+.footer {
+  margin-top: 1.5rem;
+
+  color: var(--gray800);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.footer > a {
+  color: var(--blue);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}

@@ -1,13 +1,13 @@
 /* top banner */
 .home-top-banner {
   width: 100%;
-  padding-top: 200px;
+  padding-top: 12.5rem;
 
   display: flex;
   justify-content: center;
   align-items: flex-end;
 
-  background-color: #cfe5ff;
+  background-color: var(--blue100);
 }
 
 .home-top-banner > div {
@@ -17,41 +17,41 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 7px;
+  gap: 0.4rem;
 }
 
 .banner-content {
-  width: 357px;
+  width: 22.3rem;
   flex-shrink: 0;
 }
 
 .banner-title,
 .section-title {
   font-weight: 700;
-  font-size: 40px;
-  line-height: 56px;
-  color: #374151;
+  font-size: 2.5rem;
+  line-height: 3.5rem;
+  color: var(--gray700);
   flex-shrink: 0;
 }
 
 .btn-explore {
   width: 100%;
-  border-radius: 40px;
-  padding: 16px 124px;
-  margin-top: 32px;
+  border-radius: 2.5rem;
+  padding: 1rem 7.75rem;
+  margin-top: 2rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: #3692ff;
-  color: #ffffff;
+  background-color: var(--blue);
+  color: var(--white);
 
   cursor: pointer;
 }
 
 .image-top-banner {
-  width: 746px;
+  width: 46.625rem;
   height: auto;
 
   flex-shrink: 0;
@@ -60,14 +60,13 @@
 /* bottom banner */
 .bottom-banner {
   width: 100%;
-  padding-top: 143px;
+  padding-top: 9rem;
 
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  gap: 69px;
 
-  background-color: #cfe5ff;
+  background-color: var(--blue100);
 }
 
 .bottom-banner > div {
@@ -76,7 +75,7 @@
 }
 
 .image-bottom-banner {
-  width: 746px;
+  width: 46.625rem;
   height: auto;
 
   flex-shrink: 0;

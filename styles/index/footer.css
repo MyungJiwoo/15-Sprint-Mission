@@ -1,18 +1,18 @@
 footer {
   width: 100%;
-  padding: 32px 0 108px;
+  padding: 2rem 0 6.75rem;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
-  background-color: #111827;
+  background-color: var(--gray900);
 }
 
 footer > div {
   max-width: 1920px;
   width: 100%;
-  padding: 0 200px;
+  padding: 0 12.5rem;
 
   display: flex;
   justify-content: space-between;
@@ -21,18 +21,18 @@ footer > div {
 
 .footer-company {
   font-weight: 400;
-  font-size: 16px;
-  line-height: 19px;
+  font-size: 1rem;
+  line-height: 1.1875rem;
   text-align: center;
   text-wrap: nowrap;
-  color: #9ca3af;
+  color: var(--gray300);
 
   flex-shrink: 0;
 }
 
 .footer-links {
   display: flex;
-  gap: 30px;
+  gap: 1.875rem;
   text-wrap: nowrap;
 
   flex-shrink: 0;
@@ -40,19 +40,24 @@ footer > div {
 
 .footer-links > a,
 .footer-links > a:visited {
-  color: #ffffff;
+  color: var(--white);
 }
 
 .footer-sns {
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
 
   flex-shrink: 0;
 }
 
+.footer-sns > li > a {
+  display: flex;
+  align-items: center;
+}
+
 .footer-sns img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
 
   cursor: pointer;
 }

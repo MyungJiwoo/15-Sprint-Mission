@@ -1,0 +1,26 @@
+.SociaLoginContainer {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 0.5rem;
+  background-color: #e6f2ff;
+}
+
+.SociaLoginContainer > p {
+  color: var(--gray800);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.SociaLoginContainer > ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.SociaLoginContainer > ul img {
+  width: 2.625rem;
+  height: 2.625rem;
+}
