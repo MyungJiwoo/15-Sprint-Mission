@@ -45,6 +45,10 @@ section img {
   color: var(--blue);
 }
 
+.section-title > span {
+  display: inline-block;
+}
+
 .section-content {
   margin-top: 1.5rem;
 
