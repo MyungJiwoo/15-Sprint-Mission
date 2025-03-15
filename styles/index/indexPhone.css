@@ -1,8 +1,7 @@
-/* 반응형 : 핸드폰 (모바일의 0.6배) */
-@media screen and (max-width: 767px) {
+@media screen and (min-width: 375px) and (max-width: 767px) {
   /* header */
   header {
-    padding: 0.625rem 4.5rem;
+    padding: 0.625rem 1rem;
   }
 
   .image-logo {
@@ -20,66 +19,100 @@
     padding-top: 4rem;
   }
 
-  .banner-title,
-  .section-title {
-    font-size: 1rem;
-    line-height: 1.25rem;
-  }
-
-  .image-top-banner {
-    width: 16.75rem;
-    height: auto;
+  .home-top-banner > div {
+    flex-direction: column;
   }
 
   .banner-content {
-    width: 8rem;
+    width: 12rem;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .banner-title,
+  .section-title {
+    font-size: 1.5rem;
+    text-align: center;
+    line-height: 2rem;
+  }
+
+  .image-top-banner {
+    width: 80%;
+    height: auto;
+    margin-top: 4rem;
   }
 
   .btn-explore {
-    padding: 0.5rem;
-    margin-top: 0.625rem;
-    font-size: 0.75rem;
+    width: 12rem;
+    padding: 0.5rem 0;
+    margin-top: 0;
+    font-size: 0.875rem;
   }
 
   .bottom-banner {
-    padding-top: 3.75rem;
+    padding-top: 4rem;
+  }
+
+  .bottom-banner > div {
+    flex-direction: column;
   }
 
   .image-bottom-banner {
-    width: 15rem;
+    width: 80%;
     height: auto;
+    margin-top: 5rem;
   }
 
   /* section */
+  section {
+    margin: 0;
+    padding: 3rem 0;
+    background-color: #fcfcfc;
+  }
+
   .section-hot-item,
   .section-search,
   .section-register {
-    width: 26.25rem;
-    height: 10rem;
-    margin: 3rem 0;
-    gap: 0.9rem;
+    width: 100%;
+    height: fit-content;
+    margin: 0;
+    padding: 1rem;
+
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.5rem;
+  }
+
+  .section-search {
+    flex-direction: column-reverse;
+    align-items: flex-end;
   }
 
   section img {
-    width: 13.375rem;
-    height: 9.9375rem;
+    border-radius: 1rem;
+    width: 100%;
+    height: auto;
   }
 
   .section-badge {
-    margin-bottom: 0.56rem;
-    font-size: 0.625rem;
-    line-height: 0.75rem;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1rem;
   }
 
   .section-content {
-    margin-top: 0.75rem;
-    font-size: 0.75rem;
-    line-height: 1rem;
+    margin-top: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
   }
 
   /* footer */
   footer {
-    padding: 1.1875rem 0 4rem;
+    padding: 1.25rem 0 4rem;
+    position: relative;
   }
 
   footer > div {
@@ -87,15 +120,18 @@
   }
 
   .footer-company {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
+    position: absolute;
+    bottom: 1.25rem;
   }
 
   .footer-links {
-    gap: 0.625rem;
+    font-size: 0.875rem;
+    gap: 0.875rem;
   }
 
   .footer-sns {
-    gap: 0.3125rem;
+    gap: 0.5rem;
   }
 
   .footer-links > a,
