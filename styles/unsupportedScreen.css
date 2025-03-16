@@ -1,0 +1,28 @@
+@media screen and (max-width: 374px) and (min-width: 0px) {
+  body .unsupportedScreen {
+    width: 100vw;
+    height: 100vh;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(1rem);
+  }
+
+  .unsupportedScreen > p {
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    background-color: white;
+    color: var(--blue);
+    font-size: 5vw;
+    line-height: 7vw;
+    white-space: nowrap;
+    text-align: center;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  }
+}
