@@ -1,5 +1,5 @@
 @media screen and (max-width: 374px) and (min-width: 0px) {
-  body .unsupportedScreen {
+  body .unsupported-screen {
     width: 100vw;
     height: 100vh;
 
@@ -14,7 +14,7 @@
     backdrop-filter: blur(1rem);
   }
 
-  .unsupportedScreen > p {
+  .unsupported-screen > p {
     padding: 1rem 2rem;
     border-radius: 1rem;
     background-color: white;

@@ -1,4 +1,4 @@
-.SociaLoginContainer {
+.social-login-container {
   width: 100%;
   padding: 1rem 1.5rem;
   margin-top: 1.5rem;
@@ -9,18 +9,18 @@
   background-color: #e6f2ff;
 }
 
-.SociaLoginContainer > p {
+.social-login-container > p {
   color: var(--gray800);
   font-size: 1rem;
   font-weight: 500;
 }
 
-.SociaLoginContainer > ul {
+.social-login-container > ul {
   display: flex;
   gap: 1rem;
 }
 
-.SociaLoginContainer > ul img {
+.social-login-container > ul img {
   width: 2.625rem;
   height: 2.625rem;
 }
