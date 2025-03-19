@@ -1,4 +1,5 @@
 @import url(/styles/reset.css);
+@import url("/styles/unsupportedScreen.css");
 
 :root {
   --blue: #3692ff;
@@ -22,4 +23,12 @@ body {
 
 * {
   transition: all 300ms ease-in-out;
+}
+
+button {
+  cursor: pointer;
+}
+
+.unsupported-screen {
+  display: none;
 }

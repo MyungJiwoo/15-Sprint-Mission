@@ -1,8 +1,8 @@
-/* 반응형 : 핸드폰 */
-@media screen and (max-width: 767px) {
-  .loginContainer {
-    width: 60%;
-    min-width: 14rem;
+@media screen and (min-width: 375px) and (max-width: 767px) {
+  .login-container {
+    width: 100%;
+    max-width: 25rem;
+    padding: 0 1rem;
   }
 
   .image-logo {

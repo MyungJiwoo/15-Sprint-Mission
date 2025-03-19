@@ -11,33 +11,39 @@
     />
     <link rel="stylesheet" href="styles/account/account.css" />
     <title>판다마켓 - 로그인</title>
-    <link rel="icon" href="/images/icon_favicon.ico" />
+    <link rel="icon" href="/images/icon_favicon.png" />
   </head>
 
   <body>
-    <div class="loginContainer">
+    <div class="login-container">
       <header>
         <a href="/">
-          <img
-            src="images/img_logo.png"
-            alt="판다마켓 로고"
-            class="image-logo"
-          />
+          <img src="images/logo.png" alt="판다마켓" class="image-logo" />
         </a>
       </header>
 
-      <form>
-        <label>이메일 <input type="email" /></label>
-        <label
-          >비밀번호 <input type="password" /><img
-            src="/images/btn_visibility_on.png"
-            alt="비밀번호 보기"
-            class="passwordVisibilityOn"
-        /></label>
-        <button type="submit">로그인</button>
+      <form class="form-account">
+        <label class="label-account">
+          이메일
+          <input
+            type="email"
+            placeholder="이메일을 입력해주세요"
+            class="input-account"
+          />
+        </label>
+        <label class="label-account">
+          비밀번호
+          <input
+            type="password"
+            placeholder="비밀번호를 입력해주세요"
+            class="input-account password"
+          />
+          <button class="btn-visibility-on"></button>
+        </label>
+        <button class="btn-submit" type="submit">로그인</button>
       </form>
 
-      <div class="SociaLoginContainer">
+      <div class="social-login-container">
         <p>간편 로그인하기</p>
         <ul>
           <li>
@@ -55,6 +61,13 @@
 
       <p class="footer">
         판다마켓이 처음이신가요? <a href="/signup.html">회원가입</a>
+      </p>
+    </div>
+
+    <div class="unsupported-screen">
+      <p>
+        지원하지 않는 화면 크기입니다.<br />
+        브라우저의 크기를 넓혀주세요.
       </p>
     </div>
   </body>

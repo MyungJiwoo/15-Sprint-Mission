@@ -3,6 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="판다 마켓" />
+    <meta name="description" content="일상의 모든 물건을 거래해보세요" />
+    <meta name="keywords" content="판다 마켓, 중고 거래, 일상 물건" />
+    <meta property="og:title" content="판다 마켓" />
+    <meta property="og:description" content="일상의 모든 물건을 거래해보세요" />
+    <meta
+      property="og:image"
+      content="https://myungjiwoo-pandamarket.netlify.app/images/preview.png"
+    />
+    <meta
+      property="og:url"
+      content="https://myungjiwoo-pandamarket.netlify.app/"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="판다 마켓" />
+    <meta
+      name="twitter:description"
+      content="일상의 모든 물건을 거래해보세요"
+    />
+    <meta name="twitter:image" content="/images/preview.png" />
+
     <link
       rel="stylesheet"
       as="style"
@@ -11,13 +32,13 @@
     />
     <link rel="stylesheet" href="styles/index/index.css" />
     <title>판다마켓</title>
-    <link rel="icon" href="/images/icon_favicon.ico" />
+    <link rel="icon" href="/images/icon_favicon.png" />
   </head>
 
   <body>
     <header>
       <a href="/">
-        <img src="images/img_logo.png" alt="판다마켓 로고" class="image-logo" />
+        <img src="images/logo.png" alt="판다마켓" class="image-logo" />
       </a>
       <a href="login.html">
         <div class="btn-login">로그인</div>
@@ -28,15 +49,15 @@
       <div>
         <div class="banner-content">
           <p class="banner-title">
-            일상의 모든 물건을<br />
-            거래해 보세요
+            <span>일상의 모든 물건을</span>
+            <span>거래해 보세요</span>
           </p>
           <a href="items.html">
             <div class="btn-explore">구경하러 가기</div>
           </a>
         </div>
         <img
-          src="images/img_home_banner_top.png"
+          src="images/home_banner_top.png"
           alt="판다마켓 캐릭터"
           class="image-top-banner"
         />
@@ -45,12 +66,12 @@
 
     <section>
       <div class="section-hot-item">
-        <img src="images/img_home_01.png" alt="인기 상품" />
-        <div>
+        <img src="images/home_01.png" alt="인기 상품" />
+        <div class="left">
           <p class="section-badge">Hot item</p>
           <p class="section-title">
-            인기 상품을<br />
-            확인해 보세요
+            <span>인기 상품을</span>
+            <span>확인해 보세요</span>
           </p>
           <p class="section-content">
             가장 HOT한 중고거래 물품을<br />
@@ -63,21 +84,24 @@
         <div class="right">
           <p class="section-badge">Search</p>
           <p class="section-title">
-            구매를 원하는<br />
-            상품을 검색하세요
+            <span>구매를 원하는</span>
+            <span>상품을 검색하세요</span>
           </p>
           <p class="section-content">
             구매하고 싶은 물품은 검색해서<br />쉽게 찾아보세요
           </p>
         </div>
-        <img src="images/img_home_02.png" alt="상품 검색" />
+        <img src="images/home_02.png" alt="상품 검색" />
       </div>
 
       <div class="section-register">
-        <img src="images/img_home_03.png" alt="상품 등록" />
-        <div>
+        <img src="images/home_03.png" alt="상품 등록" />
+        <div class="left">
           <p class="section-badge">Register</p>
-          <p class="section-title">판매를 원하는<br />상품을 등록하세요</p>
+          <p class="section-title">
+            <span>판매를 원하는</span>
+            <span>상품을 등록하세요</span>
+          </p>
           <p class="section-content">
             어떤 물건이든 판매하고 싶은 상품을<br />
             쉽게 등록하세요
@@ -90,7 +114,7 @@
       <div>
         <p class="banner-title">믿을 수 있는<br />판다마켓 중고 거래</p>
         <img
-          src="images/img_home_banner_bottom.png"
+          src="images/home_banner_bottom.png"
           alt="판다마켓 캐릭터"
           class="image-bottom-banner"
         />
@@ -128,5 +152,12 @@
         </ul>
       </div>
     </footer>
+
+    <div class="unsupported-screen">
+      <p>
+        지원하지 않는 화면 크기입니다.<br />
+        브라우저의 크기를 넓혀주세요.
+      </p>
+    </div>
   </body>
 </html>
