@@ -1,41 +1,29 @@
-const VALIDATION_RULES = {
-  email: {
-    regex: "^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$",
-    emptyMessage: "이메일을 입력해주세요.",
-    errorMessage: "잘못된 이메일 형식입니다.",
-  },
-  nickname: {
-    emptyMessage: "닉네임을 입력해주세요.",
-  },
-  password: {
-    regex: "^.{8,}$",
-    emptyMessage: "비밀번호를 입력해주세요.",
-    errorMessage: "비밀번호를 8자 이상 입력해주세요.",
-  },
-  "password-confirm": {
-    emptyMessage: "비밀번호를 다시 입력해주세요.",
-    errorMessage: "비밀번호가 일치하지 않습니다.",
-  },
+import { getValidationMessage } from "./validation.js";
+import { account, BLANK, CSS_CLASSES, DISPLAY_STATES } from "./constants.js";
+
+const inputs = document.querySelectorAll(`.${CSS_CLASSES.inputAccount}`);
+const submitBtn = document.querySelector(`.${CSS_CLASSES.btnSubmit}`);
+
+const updateSubmitButtonState = () => {
+  let isReadyToSubmit = true;
+  for (let input of inputs) {
+    isReadyToSubmit = !getValidationMessage(input.id, account[input.id]);
+  }
+  if (isReadyToSubmit) submitBtn.disabled = false;
 };
 
-const account = {
-  email: "",
-  nickname: "",
-  password: "",
-  "password-confirm": "",
-};
+const handleValidation = (input) => {
+  const errorMsg = input.parentNode.querySelector(`.${CSS_CLASSES.msgError}`);
+  const message = getValidationMessage(input.id, input.value);
+  const hasError = Boolean(message);
 
-const inputs = document.querySelectorAll(".input-account");
-const submitBtn = document.querySelector(".btn-submit");
+  input.classList.toggle(CSS_CLASSES.error, hasError);
+  errorMsg.textContent = hasError ? message : BLANK;
+  errorMsg.style.display = hasError
+    ? DISPLAY_STATES.block
+    : DISPLAY_STATES.none;
 
-const isValidate = (id, value) => {
-  if (value === "") return VALIDATION_RULES[id].emptyMessage;
-
-  if (id === "password-confirm" && value !== account.password)
-    return VALIDATION_RULES[id].errorMessage;
-
-  if (!value.match(VALIDATION_RULES[id]?.regex))
-    return VALIDATION_RULES[id].errorMessage;
+  if (!hasError) updateSubmitButtonState();
 };
 
 const handleChange = (event) => {
@@ -44,25 +32,7 @@ const handleChange = (event) => {
 
 const handleBlur = (event) => {
   const input = event.target;
-  const errorMsg = input.parentNode.querySelector(".msg-error");
-
-  // 유효성 검사
-  const message = isValidate(input.id, input.value);
-  if (message) {
-    input.classList.add("error");
-    errorMsg.innerHTML = message;
-    errorMsg.style.display = "block";
-  } else {
-    input.classList.remove("error");
-    errorMsg.style.display = "none";
-
-    // 제출 버튼 활성화
-    let isReadyToSubmit = true;
-    for (let field of inputs) {
-      isReadyToSubmit = !isValidate(field.id, account[field.id]);
-    }
-    if (isReadyToSubmit) submitBtn.disabled = false;
-  }
+  handleValidation(input);
 };
 
 inputs.forEach((input) => {
