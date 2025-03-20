@@ -5,11 +5,22 @@ export const CSS_CLASSES = Object.freeze({
   msgError: "msg-error",
   inputAccount: "input-account",
   btnSubmit: "btn-submit",
+  btnVisibility: "btn-visibility-on",
 });
 
 export const DISPLAY_STATES = Object.freeze({
   block: "block",
   none: "none",
+});
+
+export const TYPE_STATES = Object.freeze({
+  text: "text",
+  password: "password",
+});
+
+export const VISIBILITY_STATES = Object.freeze({
+  on: "on",
+  off: "off",
 });
 
 export const FIELD_IDS = Object.freeze({
