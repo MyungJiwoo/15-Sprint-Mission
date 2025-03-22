@@ -1,11 +1,46 @@
-import { account, VALIDATION_RULES, BLANK, FIELD_IDS } from "./constants.js";
+import { VALIDATION_RULES, BLANK, FIELD_IDS } from "./constants.js";
+import { updateError } from "./accountValidation.js";
+import { account } from "./models/account.js";
 
 export const getValidationMessage = (id, value) => {
-  if (value === BLANK) return VALIDATION_RULES[id].emptyMessage;
-
-  if (id === FIELD_IDS.passwordConfirm && value !== account.password)
+  if (isBlank(value)) {
+    return VALIDATION_RULES[id].emptyMessage;
+  }
+  if (
+    (id === FIELD_IDS.email || id === FIELD_IDS.password) &&
+    isValidRegex(id, value)
+  ) {
     return VALIDATION_RULES[id].errorMessage;
+  }
+  if (id === FIELD_IDS.passwordConfirm && isValidPasswordConfirm(value)) {
+    return VALIDATION_RULES[FIELD_IDS.passwordConfirm].errorMessage;
+  }
 
-  if (!value.match(VALIDATION_RULES[id]?.regex))
-    return VALIDATION_RULES[id].errorMessage;
+  return null;
+};
+
+const isBlank = (value) => {
+  return value === BLANK;
+};
+
+const isValidRegex = (id, value) => {
+  return !value.match(VALIDATION_RULES[id]?.regex);
+};
+
+const isValidPasswordConfirm = (value) => {
+  return value !== account[FIELD_IDS.password];
+};
+
+export const revalidatePasswordConfirm = () => {
+  const hasErrorPasswordConfirm = isValidPasswordConfirm(
+    account[FIELD_IDS.passwordConfirm]
+  );
+  const errorMessage =
+    hasErrorPasswordConfirm &&
+    VALIDATION_RULES[FIELD_IDS.passwordConfirm].errorMessage;
+
+  updateError(
+    document.querySelector(`#${FIELD_IDS.passwordConfirm}`),
+    errorMessage
+  );
 };

@@ -1,3 +1,5 @@
+import { FIELD_IDS } from "../constants.js";
+
 export const account = {
   [FIELD_IDS.email]: "",
   [FIELD_IDS.nickname]: "",
