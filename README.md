@@ -39,7 +39,7 @@
 
 ### 지난 코드 리뷰
 
-- [ ] 여백 없이 이미지 추출
+- [x] 여백 없이 이미지 추출
 - [x] 화면의 최소 크기가 0px이라면, min-width 제거
 - [x] 불필요한 css 우선순위 수정 (unsupportedScreen.css)
 - [x] 디자인 시안과 동일하게 좌우 padding 값 수정 (indexPhone.css)
