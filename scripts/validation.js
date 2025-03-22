@@ -7,13 +7,15 @@ export const getValidationMessage = (id, value) => {
     return VALIDATION_RULES[id].emptyMessage;
   }
   if (
-    (id === FIELD_IDS.email || id === FIELD_IDS.password) &&
+    (id === FIELD_IDS.email ||
+      id === FIELD_IDS.password ||
+      id === FIELD_IDS.passwordConfirm) &&
     isValidRegex(id, value)
   ) {
-    return VALIDATION_RULES[id].errorMessage;
+    return VALIDATION_RULES[id].patternMismatchMessage;
   }
   if (id === FIELD_IDS.passwordConfirm && isValidPasswordConfirm(value)) {
-    return VALIDATION_RULES[FIELD_IDS.passwordConfirm].errorMessage;
+    return VALIDATION_RULES[FIELD_IDS.passwordConfirm].passwordMismatchMessage;
   }
 
   return null;
@@ -37,7 +39,7 @@ export const revalidatePasswordConfirm = () => {
   );
   const errorMessage =
     hasErrorPasswordConfirm &&
-    VALIDATION_RULES[FIELD_IDS.passwordConfirm].errorMessage;
+    VALIDATION_RULES[FIELD_IDS.passwordConfirm].passwordMismatchMessage;
 
   updateError(
     document.querySelector(`#${FIELD_IDS.passwordConfirm}`),
