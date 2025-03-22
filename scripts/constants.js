@@ -49,10 +49,3 @@ export const VALIDATION_RULES = Object.freeze({
     errorMessage: "비밀번호가 일치하지 않습니다.",
   },
 });
-
-export const account = {
-  [FIELD_IDS.email]: "",
-  [FIELD_IDS.nickname]: "",
-  [FIELD_IDS.password]: "",
-  [FIELD_IDS.passwordConfirm]: "",
-};
