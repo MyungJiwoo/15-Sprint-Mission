@@ -29,7 +29,7 @@ const baseStyle = css`
   html,
   body {
     height: 100%;
-    background-color: var(--white);
+    background-color: var(#fcfcfc);
     font-family: "Pretendard", sans-serif;
     font-size: 10px;
   }

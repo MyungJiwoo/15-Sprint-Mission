@@ -3,6 +3,7 @@ import { createBrowserRouter } from "react-router-dom";
 import App from "../App";
 import ItemsPage from "@pages/items-page";
 import LandingPage from "@pages/landing-page";
+import BoardsPage from "@pages/boards-page";
 
 const router = createBrowserRouter([
   {
@@ -16,6 +17,10 @@ const router = createBrowserRouter([
       {
         path: "items",
         element: <ItemsPage />,
+      },
+      {
+        path: "boards",
+        element: <BoardsPage />,
       },
     ],
   },
