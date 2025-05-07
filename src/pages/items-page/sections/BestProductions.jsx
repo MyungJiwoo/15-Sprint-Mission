@@ -65,6 +65,7 @@ const BestProductions = () => {
       <ItemsContainer>
         {bestItemsData?.map((item) => (
           <ProductCard
+            key={item.id}
             id={item.id}
             src={item.images[0]}
             title={item.name}
