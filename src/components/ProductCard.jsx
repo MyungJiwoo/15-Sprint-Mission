@@ -21,7 +21,13 @@ const ProductCard = ({ id, src, title, price = 0, like = 0, children }) => {
 
   return (
     <ProductContext.Provider value={contextValue}>
-      <ProductCardLayout>{children}</ProductCardLayout>
+      <ProductCardLayout>
+        <ProductImg />
+        <ProductTitle />
+        <ProductPrice />
+        <ProductLike />
+        {children}
+      </ProductCardLayout>
     </ProductContext.Provider>
   );
 };
@@ -68,6 +74,7 @@ const ProductCardLayout = styled.div`
   flex-direction: column;
   gap: 1rem;
   color: var(--gray800);
+  cursor: pointer;
 `;
 
 const Img = styled.img`
@@ -82,11 +89,13 @@ const Img = styled.img`
 const Title = styled.h3`
   font-weight: normal;
   font-size: 1.4rem;
+  color: var(--gray800);
 `;
 
 const Price = styled.h2`
   font-weight: bold;
   font-size: 1.6rem;
+  color: var(--gray800);
 `;
 
 const LikeContainer = styled.div`
