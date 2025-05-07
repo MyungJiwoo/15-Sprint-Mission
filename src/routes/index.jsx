@@ -4,6 +4,7 @@ import App from "../App";
 import ItemsPage from "@pages/items-page";
 import LandingPage from "@pages/landing-page";
 import BoardsPage from "@pages/boards-page";
+import AddItemPage from "@pages/add-item-page";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "boards",
         element: <BoardsPage />,
+      },
+      {
+        path: "additem",
+        element: <AddItemPage />,
       },
     ],
   },
