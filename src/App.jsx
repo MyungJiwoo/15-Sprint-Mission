@@ -2,12 +2,7 @@ import { Outlet } from "react-router-dom";
 import styled from "@emotion/styled";
 import GlobalStyle from "./GlobalStyle";
 import Header from "@/layouts/Header";
-
-const breakpoints = {
-  mobile: "480px",
-  tablet: "768px",
-  desktop: "1024px",
-};
+import { breakpoints } from "@constants/breakpoints";
 
 const Layout = styled.div`
   display: flex;
@@ -16,7 +11,7 @@ const Layout = styled.div`
   position: relative;
 `;
 
-const Main = styled.main`
+const ResponsiveMain = styled.main`
   // 모바일 & 전체
   width: 95vw;
 
@@ -36,9 +31,9 @@ const App = () => {
     <Layout>
       <GlobalStyle />
       <Header />
-      <Main>
+      <ResponsiveMain>
         <Outlet />
-      </Main>
+      </ResponsiveMain>
     </Layout>
   );
 };
