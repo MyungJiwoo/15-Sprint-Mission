@@ -57,7 +57,7 @@ const NavSection = styled.section`
 `;
 
 const StyledNavLink = styled(NavLink)`
-  color: var(--secondary600);
+  color: var(--gray600);
   text-decoration: none;
   font-weight: bold;
 

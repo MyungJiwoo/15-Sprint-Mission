@@ -5,7 +5,6 @@ const baseStyle = css`
   :root {
     --blue: #3692ff;
     --blue100: #cfe5ff;
-    --secondary600: #4b5563;
     --white: #ffffff;
     --gray900: #111827;
     --gray800: #1f2937;
