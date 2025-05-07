@@ -1,6 +1,7 @@
-import { useContext, createContext } from "react";
+import { useContext, createContext, useRef } from "react";
 import styled from "@emotion/styled";
 import HeartIcon from "@assets/icons/heart";
+import NotFoundImg from "@assets/imgs/notFoundImage@2x.png";
 
 const ProductContext = createContext({
   id: null,
@@ -34,8 +35,22 @@ const ProductCard = ({ id, src, title, price = 0, like = 0, children }) => {
 
 const ProductImg = () => {
   const { src } = useContext(ProductContext);
+  const imgRef = useRef(null);
 
-  return <Img src={src}></Img>;
+  const handleImgError = () => {
+    if (imgRef.current && imgRef.current.src !== NotFoundImg) {
+      imgRef.current.src = NotFoundImg;
+    }
+  };
+
+  return (
+    <Img
+      src={src || NotFoundImg}
+      ref={imgRef}
+      onError={handleImgError}
+      alt="상품 이미지"
+    ></Img>
+  );
 };
 
 const ProductTitle = () => {
@@ -70,6 +85,8 @@ export default ProductCard;
 
 const ProductCardLayout = styled.div`
   width: 100%;
+  max-width: 100%;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -90,6 +107,11 @@ const Title = styled.h3`
   font-weight: normal;
   font-size: 1.4rem;
   color: var(--gray800);
+
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `;
 
 const Price = styled.h2`
