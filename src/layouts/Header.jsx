@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import styled from "@emotion/styled";
 import Logo from "/logo@2x.png";
 import Profile from "/profile@3x.png";
+import { breakpoints } from "@constants/breakpoints";
 
 const Header = () => {
   return (
@@ -26,8 +27,8 @@ const Header = () => {
 export default Header;
 
 const HeaderContainer = styled.div`
-  width: 100vw;
-  padding: 1rem 10vw;
+  width: 100%;
+  padding: 1rem 2.5vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -35,6 +36,12 @@ const HeaderContainer = styled.div`
   background-color: var(--white);
   position: sticky;
   top: 0;
+  z-index: 100;
+
+  // 데스크탑
+  @media (min-width: ${breakpoints.desktop}) {
+    padding: 1rem 10vw;
+  }
 `;
 
 const Section = styled.section`
@@ -49,11 +56,23 @@ const LogoImg = styled.img`
 `;
 
 const NavSection = styled.section`
-  margin-left: 3rem;
+  margin-left: 1rem;
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  gap: 1.5rem;
+  gap: 1rem;
+
+  // 태블릿
+  @media (min-width: ${breakpoints.mobile}) {
+    margin-left: 3rem;
+    gap: 1.5rem;
+  }
+
+  // 데스크탑
+  @media (min-width: ${breakpoints.desktop}) {
+    margin-left: 3rem;
+    gap: 1.5rem;
+  }
 `;
 
 const StyledNavLink = styled(NavLink)`
