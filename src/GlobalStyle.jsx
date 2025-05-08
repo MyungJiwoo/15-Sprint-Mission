@@ -31,6 +31,7 @@ const baseStyle = css`
     background-color: var(#fcfcfc);
     font-family: "Pretendard", sans-serif;
     font-size: 10px;
+    color: var(--gray800);
   }
 
   div,
