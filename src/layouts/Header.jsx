@@ -56,22 +56,16 @@ const LogoImg = styled.img`
 `;
 
 const NavSection = styled.section`
-  margin-left: 1rem;
+  margin-left: 3rem;
   display: flex;
   align-items: center;
   flex: 0 0 auto;
-  gap: 1rem;
+  gap: 1.5rem;
 
-  // 태블릿
-  @media (min-width: ${breakpoints.mobile}) {
-    margin-left: 3rem;
-    gap: 1.5rem;
-  }
-
-  // 데스크탑
-  @media (min-width: ${breakpoints.desktop}) {
-    margin-left: 3rem;
-    gap: 1.5rem;
+  // 모바일
+  @media (max-width: ${breakpoints.tablet}) {
+    margin-left: 1rem;
+    gap: 1rem;
   }
 `;
 

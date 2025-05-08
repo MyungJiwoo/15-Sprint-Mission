@@ -110,6 +110,7 @@ const HeaderSection = styled.div`
   align-items: center;
   justify-content: space-between;
 
+  // 모바일
   @media (max-width: ${breakpoints.tablet}) {
     margin-bottom: 1rem;
   }
@@ -121,6 +122,7 @@ const ProductControlBar = styled.div`
   align-items: center;
   gap: 1rem;
 
+  // 모바일
   @media (max-width: ${breakpoints.tablet}) {
     width: 100%;
   }
@@ -196,6 +198,7 @@ const DropDownButton = styled.button`
   background-color: var(--white);
   cursor: pointer;
 
+  // 모바일
   @media (max-width: ${breakpoints.tablet}) {
     width: fit-content;
   }
