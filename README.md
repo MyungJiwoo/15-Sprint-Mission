@@ -1,5 +1,7 @@
 ## 판다마켓 5
 
+**🌐 배포 url: https://myungjiwoo-pandamarket.netlify.app/items**
+
 ### 기본 요구사항
 
 - [x] Github의 PR을 만들어서 미션을 제출한다.
