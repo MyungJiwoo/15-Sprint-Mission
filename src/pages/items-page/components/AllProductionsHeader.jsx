@@ -6,7 +6,12 @@ import DropDownIcon from "@assets/icons/dropdown";
 import SortIcon from "@assets/icons/sort";
 import { breakpoints } from "@constants/breakpoints";
 
-const AllProductionsHeader = ({ isMobile, sort, onSortChange }) => {
+const AllProductionsHeader = ({
+  isMobile,
+  sort,
+  onSortChange,
+  onPageChange,
+}) => {
   const [selectIsOpen, setSelectIsOpen] = useState(false);
 
   return (
@@ -35,6 +40,7 @@ const AllProductionsHeader = ({ isMobile, sort, onSortChange }) => {
                   <SortItem
                     onClick={() => {
                       onSortChange("recent");
+                      onPageChange(1);
                       setSelectIsOpen(false);
                     }}
                   >
@@ -43,6 +49,7 @@ const AllProductionsHeader = ({ isMobile, sort, onSortChange }) => {
                   <SortItem
                     onClick={() => {
                       onSortChange("favorite");
+                      onPageChange(1);
                       setSelectIsOpen(false);
                     }}
                   >

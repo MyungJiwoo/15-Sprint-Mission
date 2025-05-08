@@ -41,6 +41,7 @@ const AllProductions = () => {
         isMobile={isMobile}
         sort={sort}
         onSortChange={setSort}
+        onPageChange={setPage}
       />
 
       <ItemsContainer>
