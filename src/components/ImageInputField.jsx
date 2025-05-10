@@ -51,14 +51,17 @@ const Label = styled.label`
 `;
 
 const ImageLabel = styled.label`
-  width: 20rem;
-  height: 20rem;
+  width: 45%;
+  height: 45%;
+  max-width: 20rem;
+  max-height: 20rem;
   padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  aspect-ratio: 1 / 1;
   border-radius: 1.2rem;
   background-color: var(--gray100);
   cursor: pointer;
@@ -79,13 +82,16 @@ const ImageInputContainer = styled.div`
 `;
 
 const PreviewImageContainer = styled.div`
-  width: 20rem;
-  height: 20rem;
+  width: 45%;
+  height: 45%;
+  max-width: 20rem;
+  max-height: 20rem;
   padding: 1rem;
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   background-color: var(--white);
   border: 1px solid var(--gray100);
