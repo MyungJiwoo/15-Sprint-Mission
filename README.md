@@ -1,6 +1,6 @@
 ## 판다마켓 6
 
-**🌐 배포 url: https://myungjiwoo-pandamarket.netlify.app**
+**🌐 배포 url: https://myungjiwoo-pandamarket.netlify.app/additem**
 
 ### 기본 요구사항
 
@@ -20,3 +20,14 @@
 
 - [x] 이미지 안의 x 버튼을 누르면 이미지가 삭제된다.
 - [x] 추가된 태그 안의 x 버튼을 누르면 해당 태그는 삭제된다.
+
+### 추가 기능
+
+- [x] 오류 메시지를 토스트 메시지로 구현 (react-toastify 라이브러리 사용)
+
+### 구현 포인트
+
+- [x] input 컴포넌트의 재활용 및 추상화
+  - `Base~ 컴포넌트` : 최소 단위 입력 컴포넌트
+  - `~Field 컴포넌트` : 공통 인터페이스를 추가한 확장 컴포넌트 (label, error messge 등)
+  - `Item~Field 컴포넌트` : 도메인 전용 컴포넌트
