@@ -1,8 +1,8 @@
 import { memo } from "react";
 import styled from "@emotion/styled";
 import BaseImageInput from "@components/BaseImageInput";
+import DeleteButton from "@components/DeleteButton";
 import PlusIcon from "@assets/icons/plus";
-import CloseIcon from "@assets/icons/close";
 
 const ImageInputField = ({
   id,
@@ -25,9 +25,9 @@ const ImageInputField = ({
         {imageUrl && (
           <PreviewImageContainer>
             <PreviewImage src={imageUrl} alt="미리보기" />
-            <CloseIconBtn onClick={onDelete}>
-              <CloseIcon />
-            </CloseIconBtn>
+            <DeleteButtonWrapper>
+              <DeleteButton onClick={onDelete} size="m" />
+            </DeleteButtonWrapper>
           </PreviewImageContainer>
         )}
       </ImageInputContainer>
@@ -100,20 +100,8 @@ const PreviewImage = styled.img`
   border-radius: 0.5rem;
 `;
 
-const CloseIconBtn = styled.div`
-  width: 2rem;
-  height: 2rem;
+const DeleteButtonWrapper = styled.div`
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 100%;
-  background-color: var(--gray300);
-  cursor: pointer;
-
-  &:hover {
-    opacity: 0.7;
-  }
 `;
