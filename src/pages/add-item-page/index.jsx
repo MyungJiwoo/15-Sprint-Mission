@@ -8,6 +8,7 @@ import ItemDescriptionTextareaField from "@pages/add-item-page/components/ItemDe
 import ItemPriceInputField from "@pages/add-item-page/components/ItemPriceInputField";
 import ItemTagInputField from "@pages/add-item-page/components/ItemTagInputField";
 import TagsSection from "@pages/add-item-page/sections/TagsSection";
+import { useImageHandler } from "@pages/add-item-page/hooks/useImageHandler";
 
 const AddItemPage = () => {
   const [btnAvailable, setBtnAvailable] = useState(false);
@@ -18,17 +19,8 @@ const AddItemPage = () => {
   const [tag, setTag] = useState("");
   const [itemTags, setItemTags] = useState(new Set());
 
-  const handleImageChange = useCallback((e) => {
-    const file = e.target.files?.[0];
-    if (file) {
-      const imageUrl = URL.createObjectURL(file);
-      setItemImage(imageUrl);
-    }
-  }, []);
-
-  const handleImageDelete = useCallback(() => {
-    setItemImage("");
-  }, []);
+  const { handleImageChange, handleImageDelete } =
+    useImageHandler(setItemImage);
 
   const addToTag = useCallback(
     (tag) => {
