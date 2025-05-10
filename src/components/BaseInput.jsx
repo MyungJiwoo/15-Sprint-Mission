@@ -1,7 +1,15 @@
 import styled from "@emotion/styled";
 
 const BaseInput = ({ type = "text", value, onChange, ...props }) => {
-  return <Input type={type} value={value} onChange={onChange} {...props} />;
+  return (
+    <Input
+      type={type}
+      value={value}
+      onChange={onChange}
+      {...props}
+      autocomplete="off"
+    />
+  );
 };
 
 export default BaseInput;
