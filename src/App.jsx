@@ -3,6 +3,9 @@ import styled from "@emotion/styled";
 import GlobalStyle from "./GlobalStyle";
 import Header from "@/layouts/Header";
 import { breakpoints } from "@constants/breakpoints";
+import useDeviceSize from "@hooks/useDeviceSize";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Layout = styled.div`
   display: flex;
@@ -27,13 +30,25 @@ const ResponsiveMain = styled.main`
 `;
 
 const App = () => {
+  const { isMobile } = useDeviceSize();
+
   return (
     <Layout>
       <GlobalStyle />
+
       <Header />
       <ResponsiveMain>
         <Outlet />
       </ResponsiveMain>
+
+      <ToastContainer
+        toastClassName="custom-toast"
+        progressClassName="custom-progress-bar"
+        position={isMobile ? "top-center" : "bottom-right"}
+        style={isMobile && { marginTop: "7rem" }}
+        autoClose={3000}
+        limit={4}
+      />
     </Layout>
   );
 };
