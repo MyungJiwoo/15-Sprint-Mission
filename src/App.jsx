@@ -17,6 +17,7 @@ const Layout = styled.div`
 const ResponsiveMain = styled.main`
   // 모바일 & 전체
   width: 95vw;
+  margin: 2.5rem 0;
 
   // 태블릿
   @media (min-width: ${breakpoints.mobile}) {
