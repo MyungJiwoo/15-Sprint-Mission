@@ -256,7 +256,7 @@ const ProductTitleWithActions = styled.div`
   width: 100%;
 `;
 
-const Inquiry = styled.p`
+const Comment = styled.p`
   max-width: calc(100% - 4rem);
   float: left;
   font-size: 1.4rem;

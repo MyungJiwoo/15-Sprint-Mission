@@ -2,11 +2,11 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import Profile from "/profile@3x.png";
 import MoreIcon from "@assets/icons/more";
-import InquiryTextareaField from "@pages/products-detail-page/components/InquiryTextareaField";
+import CommentTextareaField from "@pages/products-detail-page/components/CommentTextareaField";
 import { formatDate } from "@/utils/formatDate";
 
-const InquiryItem = ({ comment }) => {
-  const [inquiry, setInquiry] = useState(comment.content);
+const CommentItem = ({ data }) => {
+  const [comment, setComment] = useState(data.content);
   const [selectIsOpen, setSelectIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -26,42 +26,42 @@ const InquiryItem = ({ comment }) => {
   };
 
   return (
-    <InquiryItemLayout isEdit={isEdit}>
+    <CommentItemLayout isEdit={isEdit}>
       {isEdit ? (
-        <InquiryContainer>
-          <InquiryTextareaField
-            value={inquiry}
-            onChange={setInquiry}
+        <CommentContainer>
+          <CommentTextareaField
+            value={comment}
+            onChange={setComment}
             isEdit={isEdit}
           />
-        </InquiryContainer>
+        </CommentContainer>
       ) : (
-        <InquiryContainer>
-          <Inquiry>{inquiry}</Inquiry>
+        <CommentContainer>
+          <Comment>{comment}</Comment>
 
-          <InquiryActionMenu>
-            <InquiryButton onClick={() => setSelectIsOpen(!selectIsOpen)}>
+          <CommentActionMenu>
+            <CommentButton onClick={() => setSelectIsOpen(!selectIsOpen)}>
               <MoreIcon />
-            </InquiryButton>
+            </CommentButton>
             {selectIsOpen && (
-              <InquiryActionList>
-                <InquiryActionItem onClick={handleEditClick}>
+              <CommentActionList>
+                <CommentActionItem onClick={handleEditClick}>
                   수정하기
-                </InquiryActionItem>
-                <InquiryActionItem onClick={handleDeleteClick}>
+                </CommentActionItem>
+                <CommentActionItem onClick={handleDeleteClick}>
                   삭제하기
-                </InquiryActionItem>
-              </InquiryActionList>
+                </CommentActionItem>
+              </CommentActionList>
             )}
-          </InquiryActionMenu>
-        </InquiryContainer>
+          </CommentActionMenu>
+        </CommentContainer>
       )}
 
       <ProductMetaSection>
-        <ProfileImage src={comment?.writer.image || Profile} />
+        <ProfileImage src={data?.writer.image || Profile} />
         <MetaInfoContainer>
-          <Author>{comment.writer.nickname}</Author>
-          <CreatedAt>{formatDate(comment.updatedAt)}</CreatedAt>
+          <Author>{data.writer.nickname}</Author>
+          <CreatedAt>{formatDate(data.updatedAt)}</CreatedAt>
         </MetaInfoContainer>
         {isEdit && (
           <ActionButtons>
@@ -70,13 +70,13 @@ const InquiryItem = ({ comment }) => {
           </ActionButtons>
         )}
       </ProductMetaSection>
-    </InquiryItemLayout>
+    </CommentItemLayout>
   );
 };
 
-export default InquiryItem;
+export default CommentItem;
 
-const InquiryItemLayout = styled.div`
+const CommentItemLayout = styled.div`
   padding: 2rem 0;
   border-bottom: 1px solid var(--gray200);
   display: flex;
@@ -84,18 +84,18 @@ const InquiryItemLayout = styled.div`
   gap: 1.5rem;
 `;
 
-const InquiryContainer = styled.div`
+const CommentContainer = styled.div`
   width: 100%;
 `;
 
-const Inquiry = styled.p`
+const Comment = styled.p`
   max-width: calc(100% - 4rem);
   float: left;
   font-size: 1.4rem;
   line-height: 2.4rem;
 `;
 
-const InquiryButton = styled.div`
+const CommentButton = styled.div`
   width: 2.4rem;
   height: 2.4rem;
   display: inline-block;
@@ -138,7 +138,7 @@ const CreatedAt = styled.p`
   font-size: 1.2rem;
 `;
 
-const InquiryActionMenu = styled.div`
+const CommentActionMenu = styled.div`
   position: relative;
 
   p {
@@ -147,7 +147,7 @@ const InquiryActionMenu = styled.div`
   }
 `;
 
-const InquiryActionList = styled.ul`
+const CommentActionList = styled.ul`
   position: absolute;
   top: 3rem;
   right: 0;
@@ -156,7 +156,7 @@ const InquiryActionList = styled.ul`
   background-color: var(--white);
 `;
 
-const InquiryActionItem = styled.li`
+const CommentActionItem = styled.li`
   width: 10rem;
   padding: 0.8rem 1rem;
   text-align: center;

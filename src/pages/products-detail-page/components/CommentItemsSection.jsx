@@ -1,10 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import styled from "@emotion/styled";
-import InquiryItem from "@pages/products-detail-page/components/InquiryItem";
-import InquiryEmptyImage from "@assets/imgs/InquiryEmpty@2x.png";
+import CommentItem from "@pages/products-detail-page/components/CommentItem";
+import CommentEmptyImage from "@assets/imgs/CommentEmpty@2x.png";
 import { getProductComments } from "@apis/productApi";
 
-const InquiryItemsSection = ({ productId }) => {
+const CommentItemsSection = ({ productId }) => {
   const [comments, setComments] = useState([]);
   const [cursor, setCursor] = useState(null);
   const [hasNext, setHasNext] = useState(true);
@@ -42,26 +42,26 @@ const InquiryItemsSection = ({ productId }) => {
   }, [loadComments, hasNext]);
 
   return (
-    <InquiryItemsContainer>
+    <CommentItemsContainer>
       {comments.length > 0 ? (
         comments.map((comment) => (
-          <InquiryItem key={comment.id} comment={comment} />
+          <CommentItem key={comment.id} data={comment} />
         ))
       ) : (
-        <InquiryEmptyContainer>
-          <img src={InquiryEmptyImage} alt="문의 없음" />
+        <CommentEmptyContainer>
+          <img src={CommentEmptyImage} alt="문의 없음" />
           <p>아직 문의가 없어요</p>
-        </InquiryEmptyContainer>
+        </CommentEmptyContainer>
       )}
-    </InquiryItemsContainer>
+    </CommentItemsContainer>
   );
 };
 
-export default InquiryItemsSection;
+export default CommentItemsSection;
 
-const InquiryItemsContainer = styled.div``;
+const CommentItemsContainer = styled.div``;
 
-const InquiryEmptyContainer = styled.div`
+const CommentEmptyContainer = styled.div`
   margin: 4.5rem 0;
   display: flex;
   flex-direction: column;

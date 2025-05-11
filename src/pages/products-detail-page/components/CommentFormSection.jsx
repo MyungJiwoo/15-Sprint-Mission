@@ -1,33 +1,33 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import BaseForm from "@components/BaseForm";
-import InquiryTextareaField from "@pages/products-detail-page/components/InquiryTextareaField";
+import CommentTextareaField from "@pages/products-detail-page/components/CommentTextareaField";
 import { useFormValidation } from "@pages/products-detail-page/hooks/useFormValidation";
 
-const InquiryFormSection = () => {
+const CommentFormSection = () => {
   const [btnAvailable, setBtnAvailable] = useState(false);
-  const [inquiry, setInquiry] = useState("");
+  const [comment, setComment] = useState("");
 
-  useFormValidation(inquiry, setBtnAvailable);
+  useFormValidation(comment, setBtnAvailable);
 
   return (
-    <InquiryFormLayout>
+    <CommentFormLayout>
       <BaseForm
         onSubmit={(e) => {
           e.preventDefault();
-          console.log(inquiry);
+          console.log(comment);
         }}
       >
-        <InquiryTextareaField value={inquiry} onChange={setInquiry} />
+        <CommentTextareaField value={comment} onChange={setComment} />
         <SubmitBtn disabled={!btnAvailable}>등록</SubmitBtn>
       </BaseForm>
-    </InquiryFormLayout>
+    </CommentFormLayout>
   );
 };
 
-export default InquiryFormSection;
+export default CommentFormSection;
 
-const InquiryFormLayout = styled.div`
+const CommentFormLayout = styled.div`
   margin-top: 4rem;
 `;
 

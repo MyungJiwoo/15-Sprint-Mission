@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
 import ProductDetailSection from "@pages/products-detail-page/components/ProductDetailSection";
-import InquiryFormSection from "@pages/products-detail-page/components/InquiryFormSection";
-import InquiryItemsSection from "@pages/products-detail-page/components/InquiryItemsSection";
+import CommentFormSection from "@pages/products-detail-page/components/CommentFormSection";
+import CommentItemsSection from "@pages/products-detail-page/components/CommentItemsSection";
 import BackIcon from "@assets/icons/back";
 
 const ProductsDetailPage = () => {
@@ -16,8 +16,8 @@ const ProductsDetailPage = () => {
   return (
     <ProductsDetailPageLayout>
       <ProductDetailSection productId={productId} />
-      <InquiryFormSection />
-      <InquiryItemsSection productId={productId} />
+      <CommentFormSection />
+      <CommentItemsSection productId={productId} />
       <NavigateToListButton onClick={handleNavigateToList}>
         <span>목록으로 돌아가기</span>
         <BackIcon />
