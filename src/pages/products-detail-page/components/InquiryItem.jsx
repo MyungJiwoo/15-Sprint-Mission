@@ -3,9 +3,10 @@ import styled from "@emotion/styled";
 import Profile from "/profile@3x.png";
 import MoreIcon from "@assets/icons/more";
 import InquiryTextareaField from "@pages/products-detail-page/components/InquiryTextareaField";
+import { formatDate } from "@/utils/formatDate";
 
-const InquiryItem = () => {
-  const [inquiry, setInquiry] = useState("혹시 사용 기간이 어떻게 되시나요?");
+const InquiryItem = ({ comment }) => {
+  const [inquiry, setInquiry] = useState(comment.content);
   const [selectIsOpen, setSelectIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
@@ -57,10 +58,10 @@ const InquiryItem = () => {
       )}
 
       <ProductMetaSection>
-        <ProfileImage src={Profile} />
+        <ProfileImage src={comment?.writer.image || Profile} />
         <MetaInfoContainer>
-          <Author>총명한 판다</Author>
-          <CreatedAt>1시간 전</CreatedAt>
+          <Author>{comment.writer.nickname}</Author>
+          <CreatedAt>{formatDate(comment.updatedAt)}</CreatedAt>
         </MetaInfoContainer>
         {isEdit && (
           <ActionButtons>
@@ -124,6 +125,7 @@ const ProfileImage = styled.img`
   height: 3.5rem;
   aspect-ratio: 1/1;
   object-fit: cover;
+  border-radius: 100%;
 `;
 
 const Author = styled.p`
