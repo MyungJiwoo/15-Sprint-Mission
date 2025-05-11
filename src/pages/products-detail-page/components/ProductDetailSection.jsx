@@ -114,12 +114,12 @@ const ProductDetailSection = ({ productId }) => {
 export default ProductDetailSection;
 
 const ResponsiveLayout = styled.div`
-  padding: 4rem 0;
+  padding-bottom: 4rem;
   display: flex;
   gap: 2rem;
   border-bottom: 1px solid var(--gray200);
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: ${breakpoints.tablet}) {
     flex-direction: column;
   }
 `;
@@ -134,8 +134,10 @@ const ProductImage = styled.img`
   aspect-ratio: 1/1;
   flex-shrink: 0;
 
-  @media (max-width: ${breakpoints.mobile}) {
+  @media (max-width: ${breakpoints.tablet}) {
     width: 100%;
+    max-width: 100%;
+    max-height: 100%;
   }
 `;
 
