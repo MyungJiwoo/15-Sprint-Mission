@@ -2,9 +2,13 @@ import { useState } from "react";
 import styled from "@emotion/styled";
 import BaseForm from "@components/BaseForm";
 import InquiryTextareaField from "@pages/products-detail-page/components/InquiryTextareaField";
+import { useFormValidation } from "@pages/products-detail-page/hooks/useFormValidation";
 
 const InquiryFormSection = () => {
+  const [btnAvailable, setBtnAvailable] = useState(false);
   const [inquiry, setInquiry] = useState("");
+
+  useFormValidation(inquiry, setBtnAvailable);
 
   return (
     <InquiryFormLayout>
@@ -15,7 +19,7 @@ const InquiryFormSection = () => {
         }}
       >
         <InquiryTextareaField value={inquiry} onChange={setInquiry} />
-        <SubmitBtn>등록</SubmitBtn>
+        <SubmitBtn disabled={!btnAvailable}>등록</SubmitBtn>
       </BaseForm>
     </InquiryFormLayout>
   );
