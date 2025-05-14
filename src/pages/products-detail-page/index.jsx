@@ -1,8 +1,8 @@
 import { useParams, useNavigate } from "react-router-dom";
 import styled from "@emotion/styled";
-import ProductDetailSection from "@pages/products-detail-page/components/ProductDetailSection";
-import CommentFormSection from "@pages/products-detail-page/components/CommentFormSection";
-import CommentItemsSection from "@pages/products-detail-page/components/CommentItemsSection";
+import ProductDetailSection from "@/pages/products-detail-page/sections/ProductDetailSection";
+import CommentFormSection from "@/pages/products-detail-page/sections/CommentFormSection";
+import CommentItemsSection from "@/pages/products-detail-page/sections/CommentItemsSection";
 import BackIcon from "@assets/icons/back";
 
 const ProductsDetailPage = () => {
