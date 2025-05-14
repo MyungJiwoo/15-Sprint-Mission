@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import BaseButton from "@components/BaseButton";
+import BaseButton from "@/components/common/BaseButton";
 import MoreIcon from "@assets/icons/more";
 
 const DROPDOWN_LIST_POSITION = {

@@ -1,6 +1,6 @@
 import { memo } from "react";
 import styled from "@emotion/styled";
-import BaseTextarea from "@components/BaseTextarea";
+import BaseTextarea from "@/components/common/BaseTextarea";
 
 // styleType : default | addItem
 const TextareaField = ({

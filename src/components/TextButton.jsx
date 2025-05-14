@@ -1,5 +1,5 @@
 import styled from "@emotion/styled";
-import BaseButton from "@components/BaseButton";
+import BaseButton from "@/components/common/BaseButton";
 
 const BUTTON_SIZE = {
   s: "1.2rem",

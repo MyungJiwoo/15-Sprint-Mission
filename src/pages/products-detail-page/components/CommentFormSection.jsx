@@ -1,6 +1,6 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import BaseForm from "@components/BaseForm";
+import BaseForm from "@/components/common/BaseForm";
 import CommentTextareaField from "@pages/products-detail-page/components/CommentTextareaField";
 import { useFormValidation } from "@pages/products-detail-page/hooks/useFormValidation";
 import TextButton from "@/components/TextButton";
