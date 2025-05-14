@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import CommentItem from "@pages/products-detail-page/components/CommentItem";
 import CommentEmptyImage from "@assets/imgs/CommentEmpty@2x.png";
 import { getProductComments } from "@apis/productApi";
+import { useObserver } from "@/hooks/useObserver";
 
 const CommentItemsSection = ({ productId }) => {
   const [comments, setComments] = useState([]);
@@ -23,23 +24,8 @@ const CommentItemsSection = ({ productId }) => {
     loadComments();
   }, [loadComments]);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (entries[0].isIntersecting && hasNext) {
-          loadComments();
-        }
-      },
-      { threshold: 1 }
-    );
-
-    const target = observerRef.current;
-    if (target) observer.observe(target);
-
-    return () => {
-      if (target) observer.unobserve(target);
-    };
-  }, [loadComments, hasNext]);
+  // 마지막 요소를 감지하는 observer
+  useObserver(observerRef, loadComments);
 
   return (
     <CommentItemsContainer>
