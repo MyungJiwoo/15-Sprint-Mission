@@ -1,9 +1,8 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
-import Profile from "/profile@3x.png";
 import CommentTextareaField from "@pages/products-detail-page/components/CommentTextareaField";
-import { formatDate } from "@/utils/formatDate";
 import DropdownMenu from "@/components/DropdownMenu";
+import WriterInfo from "@pages/products-detail-page/components/WriterInfo";
 
 const CommentItem = ({ data }) => {
   const [comment, setComment] = useState(data.content);
@@ -46,11 +45,12 @@ const CommentItem = ({ data }) => {
       )}
 
       <ProductMetaSection>
-        <ProfileImage src={data?.writer.image || Profile} />
-        <MetaInfoContainer>
-          <Author>{data.writer.nickname}</Author>
-          <CreatedAt>{formatDate(data.updatedAt)}</CreatedAt>
-        </MetaInfoContainer>
+        <WriterInfo
+          profileImg={data.writer.image}
+          name={data.writer.nickname}
+          updatedAt={data.updatedAt}
+          size="s"
+        />
         {isEdit && (
           <ActionButtons>
             <CancelBtn onClick={cancelEdit}>취소</CancelBtn>
@@ -90,31 +90,6 @@ const ProductMetaSection = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 1rem;
-`;
-
-const MetaInfoContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-`;
-
-const ProfileImage = styled.img`
-  width: 3.5rem;
-  height: 3.5rem;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-  border-radius: 100%;
-`;
-
-const Author = styled.p`
-  color: var(--gray600);
-  font-size: 1.2rem;
-`;
-
-const CreatedAt = styled.p`
-  color: var(--gray300);
-  font-size: 1.2rem;
 `;
 
 const ActionButtons = styled.div`

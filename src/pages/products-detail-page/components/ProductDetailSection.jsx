@@ -2,12 +2,11 @@ import { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import { breakpoints } from "@constants/breakpoints";
 import HeartIcon from "@assets/icons/heart";
-import Profile from "/profile@3x.png";
 import { getProduct } from "@apis/productApi";
 import NotFoundImg from "@assets/imgs/notFoundImage@2x.png";
 import Tag from "@pages/products-detail-page/components/Tag";
 import ProductInfo from "@pages/products-detail-page/components/ProductInfo";
-import { formatDate } from "@/utils/formatDate";
+import WriterInfo from "@pages/products-detail-page/components/WriterInfo";
 import DropdownMenu from "@/components/DropdownMenu";
 
 const ProductDetailSection = ({ productId }) => {
@@ -81,11 +80,12 @@ const ProductDetailSection = ({ productId }) => {
         </ProductDescriptionSection>
 
         <ProductMetaSection>
-          <ProfileImage src={Profile}></ProfileImage>
-          <MetaInfoContainer>
-            <Author>{detailData.ownerNickname}</Author>
-            <CreatedAt>{formatDate(detailData.updatedAt)}</CreatedAt>
-          </MetaInfoContainer>
+          <WriterInfo
+            profileImg={""}
+            name={detailData.ownerNickname}
+            updatedAt={detailData.updatedAt}
+            size="m"
+          />
           <LikeContainer>
             <HeartIcon />
             <LikeCount>
@@ -182,31 +182,6 @@ const ProductMetaSection = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-`;
-
-const MetaInfoContainer = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  border-right: 1px solid var(--gray200);
-`;
-
-const ProfileImage = styled.img`
-  width: 4rem;
-  height: 4rem;
-  aspect-ratio: 1/1;
-  object-fit: cover;
-`;
-
-const Author = styled.p`
-  color: var(--gray600);
-  font-size: 1.4rem;
-`;
-
-const CreatedAt = styled.p`
-  color: var(--gray300);
-  font-size: 1.4rem;
 `;
 
 const LikeContainer = styled.div`
