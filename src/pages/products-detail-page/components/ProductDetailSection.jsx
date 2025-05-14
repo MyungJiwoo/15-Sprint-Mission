@@ -8,11 +8,10 @@ import NotFoundImg from "@assets/imgs/notFoundImage@2x.png";
 import Tag from "@pages/products-detail-page/components/Tag";
 import ProductInfo from "@pages/products-detail-page/components/ProductInfo";
 import { formatDate } from "@/utils/formatDate";
-import MoreIcon from "@assets/icons/more";
+import DropdownMenu from "@/components/DropdownMenu";
 
 const ProductDetailSection = ({ productId }) => {
   const [detailData, setDetailData] = useState({});
-  const [selectIsOpen, setSelectIsOpen] = useState(false);
   const imgRef = useRef(null);
 
   const handleImgError = () => {
@@ -22,10 +21,10 @@ const ProductDetailSection = ({ productId }) => {
   };
 
   const handleEditClick = () => {
-    setSelectIsOpen(false);
+    // 게시글 수정 함수
   };
   const handleDeleteClick = () => {
-    setSelectIsOpen(false);
+    // 게시글 삭제 함수
   };
 
   useEffect(() => {
@@ -54,24 +53,12 @@ const ProductDetailSection = ({ productId }) => {
         <ProductHeader>
           <ProductTitleWithActions>
             <Title>{detailData.name}</Title>
-
-            <ContextActionMenu>
-              <ContextActionButton
-                onClick={() => setSelectIsOpen(!selectIsOpen)}
-              >
-                <MoreIcon />
-              </ContextActionButton>
-              {selectIsOpen && (
-                <ContextActionList>
-                  <ContextActionItem onClick={handleEditClick}>
-                    수정하기
-                  </ContextActionItem>
-                  <ContextActionItem onClick={handleDeleteClick}>
-                    삭제하기
-                  </ContextActionItem>
-                </ContextActionList>
-              )}
-            </ContextActionMenu>
+            <DropdownMenu
+              dropdownItem1="수정하기"
+              onDropdownItem1Click={handleEditClick}
+              dropdownItem2="삭제하기"
+              onDropdownItem2Click={handleDeleteClick}
+            />
           </ProductTitleWithActions>
 
           <Price>{Number(detailData.price).toLocaleString()}원</Price>
@@ -156,7 +143,6 @@ const ProductHeader = styled.div`
 
 const Title = styled.h1`
   max-width: calc(100% - 4rem);
-  float: left;
   margin: 0;
   padding: 0;
   font-size: 2rem;
@@ -243,60 +229,8 @@ const LikeCount = styled.p`
   color: var(--gray500);
 `;
 
-const ContextActionMenu = styled.div`
-  position: relative;
-
-  p {
-    font-size: 1.4rem;
-    margin-right: 1rem;
-  }
-`;
-
 const ProductTitleWithActions = styled.div`
   width: 100%;
-`;
-
-const Comment = styled.p`
-  max-width: calc(100% - 4rem);
-  float: left;
-  font-size: 1.4rem;
-  line-height: 2.4rem;
-`;
-
-const ContextActionList = styled.ul`
-  position: absolute;
-  top: 3rem;
-  right: 0;
-  border-radius: 0.7rem;
-  border: 1px solid var(--gray200);
-  background-color: var(--white);
-`;
-
-const ContextActionButton = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
-  display: inline-block;
-  margin-left: auto;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-`;
-
-const ContextActionItem = styled.li`
-  width: 10rem;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  list-style: none;
-  font-size: 1.4rem;
-  color: var(--gray500);
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--gray100);
-  }
-
-  &:first-of-type {
-    border-bottom: 1px solid var(--gray200);
-  }
+  justify-content: space-between;
 `;

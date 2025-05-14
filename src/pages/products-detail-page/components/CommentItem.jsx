@@ -1,13 +1,12 @@
 import { useState } from "react";
 import styled from "@emotion/styled";
 import Profile from "/profile@3x.png";
-import MoreIcon from "@assets/icons/more";
 import CommentTextareaField from "@pages/products-detail-page/components/CommentTextareaField";
 import { formatDate } from "@/utils/formatDate";
+import DropdownMenu from "@/components/DropdownMenu";
 
 const CommentItem = ({ data }) => {
   const [comment, setComment] = useState(data.content);
-  const [selectIsOpen, setSelectIsOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
 
   const cancelEdit = () => {
@@ -19,41 +18,30 @@ const CommentItem = ({ data }) => {
 
   const handleEditClick = () => {
     setIsEdit(true);
-    setSelectIsOpen(false);
+    // 댓글 수정 로직
   };
   const handleDeleteClick = () => {
-    setSelectIsOpen(false);
+    // 댓글 삭제 로직
   };
 
   return (
     <CommentItemLayout isEdit={isEdit}>
       {isEdit ? (
-        <CommentContainer>
-          <CommentTextareaField
-            value={comment}
-            onChange={setComment}
-            isEdit={isEdit}
-          />
-        </CommentContainer>
+        <CommentTextareaField
+          value={comment}
+          onChange={setComment}
+          isEdit={isEdit}
+        />
       ) : (
         <CommentContainer>
           <Comment>{comment}</Comment>
 
-          <CommentActionMenu>
-            <CommentButton onClick={() => setSelectIsOpen(!selectIsOpen)}>
-              <MoreIcon />
-            </CommentButton>
-            {selectIsOpen && (
-              <CommentActionList>
-                <CommentActionItem onClick={handleEditClick}>
-                  수정하기
-                </CommentActionItem>
-                <CommentActionItem onClick={handleDeleteClick}>
-                  삭제하기
-                </CommentActionItem>
-              </CommentActionList>
-            )}
-          </CommentActionMenu>
+          <DropdownMenu
+            dropdownItem1="수정하기"
+            onDropdownItem1Click={handleEditClick}
+            dropdownItem2="삭제하기"
+            onDropdownItem2Click={handleDeleteClick}
+          />
         </CommentContainer>
       )}
 
@@ -86,24 +74,15 @@ const CommentItemLayout = styled.div`
 
 const CommentContainer = styled.div`
   width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 0.5rem;
 `;
 
 const Comment = styled.p`
-  max-width: calc(100% - 4rem);
-  float: left;
   font-size: 1.4rem;
   line-height: 2.4rem;
-`;
-
-const CommentButton = styled.div`
-  width: 2.4rem;
-  height: 2.4rem;
-  display: inline-block;
-  margin-left: auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
+  flex: 1;
 `;
 
 const ProductMetaSection = styled.div`
@@ -136,42 +115,6 @@ const Author = styled.p`
 const CreatedAt = styled.p`
   color: var(--gray300);
   font-size: 1.2rem;
-`;
-
-const CommentActionMenu = styled.div`
-  position: relative;
-
-  p {
-    font-size: 1.4rem;
-    margin-right: 1rem;
-  }
-`;
-
-const CommentActionList = styled.ul`
-  position: absolute;
-  top: 3rem;
-  right: 0;
-  border-radius: 0.7rem;
-  border: 1px solid var(--gray200);
-  background-color: var(--white);
-`;
-
-const CommentActionItem = styled.li`
-  width: 10rem;
-  padding: 0.8rem 1rem;
-  text-align: center;
-  list-style: none;
-  font-size: 1.4rem;
-  color: var(--gray500);
-  cursor: pointer;
-
-  &:hover {
-    background-color: var(--gray100);
-  }
-
-  &:first-of-type {
-    border-bottom: 1px solid var(--gray200);
-  }
 `;
 
 const ActionButtons = styled.div`
