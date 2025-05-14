@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import BaseForm from "@components/BaseForm";
 import CommentTextareaField from "@pages/products-detail-page/components/CommentTextareaField";
 import { useFormValidation } from "@pages/products-detail-page/hooks/useFormValidation";
+import TextButton from "@/components/TextButton";
 
 const CommentFormSection = () => {
   const [btnAvailable, setBtnAvailable] = useState(false);
@@ -19,7 +20,10 @@ const CommentFormSection = () => {
         }}
       >
         <CommentTextareaField value={comment} onChange={setComment} />
-        <SubmitBtn disabled={!btnAvailable}>등록</SubmitBtn>
+
+        <ButtonWrapper>
+          <TextButton text="등록" disabled={!btnAvailable} size="l" />
+        </ButtonWrapper>
       </BaseForm>
     </CommentFormLayout>
   );
@@ -31,18 +35,8 @@ const CommentFormLayout = styled.div`
   margin-top: 4rem;
 `;
 
-const SubmitBtn = styled.button`
+const ButtonWrapper = styled.div`
+  width: fit-content;
   margin-left: auto;
   display: block;
-  padding: 0.8rem 2rem;
-  border-radius: 1.2rem;
-  border: none;
-  background-color: var(--blue);
-  font-size: 1.6rem;
-  color: var(--white);
-
-  &:disabled {
-    background-color: var(--gray300);
-    cursor: not-allowed;
-  }
 `;

@@ -3,6 +3,7 @@ import styled from "@emotion/styled";
 import CommentTextareaField from "@pages/products-detail-page/components/CommentTextareaField";
 import DropdownMenu from "@/components/DropdownMenu";
 import WriterInfo from "@pages/products-detail-page/components/WriterInfo";
+import TextButton from "@/components/TextButton";
 
 const CommentItem = ({ data }) => {
   const [comment, setComment] = useState(data.content);
@@ -53,8 +54,13 @@ const CommentItem = ({ data }) => {
         />
         {isEdit && (
           <ActionButtons>
-            <CancelBtn onClick={cancelEdit}>취소</CancelBtn>
-            <SubmitBtn onClick={confirmEdit}>수정 완료</SubmitBtn>
+            <TextButton
+              text="취소"
+              onClick={cancelEdit}
+              size="m"
+              type="cancel"
+            />
+            <TextButton text="수정 완료" onClick={confirmEdit} size="m" />
           </ActionButtons>
         )}
       </ProductMetaSection>
@@ -96,25 +102,4 @@ const ActionButtons = styled.div`
   display: flex;
   flex-shrink: 0;
   gap: 1rem;
-`;
-
-const CancelBtn = styled.button`
-  display: block;
-  padding: 0.8rem 2rem;
-  font-size: 1.6rem;
-  color: var(--gray500);
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-`;
-
-const SubmitBtn = styled.button`
-  margin-left: auto;
-  display: block;
-  padding: 0.8rem 2rem;
-  border-radius: 1.2rem;
-  border: none;
-  background-color: var(--blue);
-  font-size: 1.6rem;
-  color: var(--white);
 `;

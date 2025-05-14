@@ -31,9 +31,9 @@ const DropdownMenu = ({
 
   return (
     <DropdownMenuContainer>
-      <BaseButton onClick={handleToggle}>
+      <StyledButton onClick={handleToggle}>
         <MoreIcon />
-      </BaseButton>
+      </StyledButton>
 
       {isOpen && (
         <DropdownList listPosition={DROPDOWN_LIST_POSITION[position]}>
@@ -52,14 +52,12 @@ const DropdownMenu = ({
 export default DropdownMenu;
 
 const DropdownMenuContainer = styled.div`
+  position: relative;
+`;
+
+const StyledButton = styled(BaseButton)`
   width: 2.4rem;
   height: 2.4rem;
-  position: relative;
-
-  p {
-    font-size: 1.4rem;
-    margin-right: 1rem;
-  }
 `;
 
 const DropdownList = styled.ul`

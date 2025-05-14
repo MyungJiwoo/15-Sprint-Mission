@@ -11,8 +11,8 @@ const BaseButton = ({ onClick, children, ...props }) => {
 export default BaseButton;
 
 const Button = styled.button`
-  width: 100%;
-  height: 100%;
+  /* width: 100%; */
+  /* height: 100%; */
   border: none;
   background: none;
 
