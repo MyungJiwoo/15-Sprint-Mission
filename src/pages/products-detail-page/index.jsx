@@ -4,6 +4,7 @@ import ProductDetailSection from "@/pages/products-detail-page/sections/ProductD
 import CommentFormSection from "@/pages/products-detail-page/sections/CommentFormSection";
 import CommentItemsSection from "@/pages/products-detail-page/sections/CommentItemsSection";
 import BackIcon from "@assets/icons/back";
+import RightIconButton from "@/components/RightIconButton";
 
 const ProductsDetailPage = () => {
   const navigate = useNavigate();
@@ -14,31 +15,26 @@ const ProductsDetailPage = () => {
   };
 
   return (
-    <ProductsDetailPageLayout>
+    <>
       <ProductDetailSection productId={productId} />
       <CommentFormSection />
       <CommentItemsSection productId={productId} />
-      <NavigateToListButton onClick={handleNavigateToList}>
-        <span>목록으로 돌아가기</span>
-        <BackIcon />
-      </NavigateToListButton>
-    </ProductsDetailPageLayout>
+      <ButtonWrapper>
+        <RightIconButton
+          text="목록으로 돌아가기"
+          onClick={handleNavigateToList}
+          icon={<BackIcon />}
+          size="l"
+          rounded
+        />
+      </ButtonWrapper>
+    </>
   );
 };
 
 export default ProductsDetailPage;
 
-const ProductsDetailPageLayout = styled.div``;
-
-const NavigateToListButton = styled.button`
-  margin: 4rem auto 0 auto;
-  padding: 0.8rem 2rem;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  border-radius: 50rem;
-  border: none;
-  background-color: var(--blue);
-  font-size: 1.6rem;
-  color: var(--white);
+const ButtonWrapper = styled.div`
+  width: fit-content;
+  margin: 2rem auto 0 auto;
 `;
