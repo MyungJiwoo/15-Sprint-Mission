@@ -11,14 +11,14 @@ const CommentFormSection = () => {
 
   useFormValidation(comment, setBtnAvailable);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(comment);
+  };
+
   return (
     <CommentFormLayout>
-      <BaseForm
-        onSubmit={(e) => {
-          e.preventDefault();
-          console.log(comment);
-        }}
-      >
+      <BaseForm onSubmit={handleSubmit}>
         <CommentTextareaField value={comment} onChange={setComment} />
 
         <ButtonWrapper>

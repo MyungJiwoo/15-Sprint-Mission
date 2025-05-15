@@ -1,6 +1,6 @@
 import styled from "@emotion/styled";
 import { formatDate } from "@/utils/formatDate";
-import Profile from "/profile@3x.png";
+import DefaultProfile from "/profile@3x.png";
 
 const WRITER_INFO_PROFILE_IMG_SIZE = {
   s: "3.5rem",
@@ -16,7 +16,7 @@ const WriterInfo = ({ profileImg, name, updatedAt, size = "m" }) => {
   return (
     <WriterInfoContainer>
       <ProfileImageWrapper size={WRITER_INFO_PROFILE_IMG_SIZE[size]}>
-        <ProfileImage src={profileImg || Profile} />
+        <ProfileImage src={profileImg || DefaultProfile} />
       </ProfileImageWrapper>
       <WriterTextInfoContainer>
         <Name size={WRITER_INFO_TEXT_SIZE[size]}>{name}</Name>
