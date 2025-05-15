@@ -4,25 +4,14 @@ import CommentTextareaField from "@pages/products-detail-page/components/Comment
 import DropdownMenu from "@/components/DropdownMenu";
 import WriterInfo from "@pages/products-detail-page/components/WriterInfo";
 import TextButton from "@/components/TextButton";
+import { useCommentItemHandlers } from "@pages/products-detail-page/hooks/useCommentItemHandlers";
 
 const CommentItem = ({ data }) => {
   const [comment, setComment] = useState(data.content);
   const [isEdit, setIsEdit] = useState(false);
 
-  const cancelEdit = () => {
-    setIsEdit(false);
-  };
-  const confirmEdit = () => {
-    setIsEdit(false);
-  };
-
-  const handleEditClick = () => {
-    setIsEdit(true);
-    // 댓글 수정 로직
-  };
-  const handleDeleteClick = () => {
-    // 댓글 삭제 로직
-  };
+  const { cancelEdit, confirmEdit, handleEditClick, handleDeleteClick } =
+    useCommentItemHandlers(setIsEdit);
 
   return (
     <CommentItemLayout isEdit={isEdit}>
@@ -35,7 +24,6 @@ const CommentItem = ({ data }) => {
       ) : (
         <CommentContainer>
           <Comment>{comment}</Comment>
-
           <DropdownMenu
             dropdownItem1="수정하기"
             onDropdownItem1Click={handleEditClick}

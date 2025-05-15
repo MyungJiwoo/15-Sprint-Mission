@@ -1,30 +1,30 @@
 import { useState, useEffect, useRef } from "react";
 import styled from "@emotion/styled";
 import { breakpoints } from "@constants/breakpoints";
-import HeartIcon from "@assets/icons/heart";
 import { getProduct } from "@apis/productApi";
 import NotFoundImg from "@assets/imgs/notFoundImage@2x.png";
 import Tag from "@pages/products-detail-page/components/Tag";
-import ProductInfo from "@pages/products-detail-page/components/ProductInfo";
 import WriterInfo from "@pages/products-detail-page/components/WriterInfo";
 import DropdownMenu from "@/components/DropdownMenu";
+import LikeButtonGroup from "../components/LikeButtonGroup";
+import { useProductDetailHandlers } from "../hooks/useProductDetailHandlers";
 
 const ProductDetailSection = ({ productId }) => {
-  const [detailData, setDetailData] = useState({});
   const imgRef = useRef(null);
+  const [detailData, setDetailData] = useState({});
+  const {
+    name,
+    price,
+    description,
+    tags,
+    ownerNickname,
+    updatedAt,
+    favoriteCount,
+    images,
+  } = detailData;
 
-  const handleImgError = () => {
-    if (imgRef.current && imgRef.current.src !== NotFoundImg) {
-      imgRef.current.src = NotFoundImg;
-    }
-  };
-
-  const handleEditClick = () => {
-    // 게시글 수정 함수
-  };
-  const handleDeleteClick = () => {
-    // 게시글 삭제 함수
-  };
+  const { handleImgError, handleEditClick, handleDeleteClick } =
+    useProductDetailHandlers(imgRef);
 
   useEffect(() => {
     const fetchProduct = async () => {
@@ -43,55 +43,47 @@ const ProductDetailSection = ({ productId }) => {
     <ResponsiveLayout>
       <ProductImage
         ref={imgRef}
-        src={detailData?.images?.[0] || NotFoundImg}
+        src={images?.[0] || NotFoundImg}
         alt="상품 이미지"
         onError={handleImgError}
       />
 
       <ProductContentSection>
         <ProductHeader>
-          <ProductTitleWithActions>
-            <Title>{detailData.name}</Title>
+          <Title>{name}</Title>
+          <Price>{Number(price).toLocaleString()}원</Price>
+          <DropdownMenuWrapper>
             <DropdownMenu
               dropdownItem1="수정하기"
               onDropdownItem1Click={handleEditClick}
               dropdownItem2="삭제하기"
               onDropdownItem2Click={handleDeleteClick}
             />
-          </ProductTitleWithActions>
-
-          <Price>{Number(detailData.price).toLocaleString()}원</Price>
+          </DropdownMenuWrapper>
         </ProductHeader>
 
         <ProductDescriptionSection>
-          <ProductInfo title="상품 소개">
-            <ProductDetailsContent>
-              {detailData.description}
-            </ProductDetailsContent>
-          </ProductInfo>
+          <ProductDetailsTitle>상품 소개</ProductDetailsTitle>
+          <ProductDetailsContent>{description}</ProductDetailsContent>
+        </ProductDescriptionSection>
 
-          <ProductInfo title="상품 태그">
-            <ProductTagsContainer>
-              {detailData?.tags?.map((tag) => (
-                <Tag key={tag} tag={tag} />
-              ))}
-            </ProductTagsContainer>
-          </ProductInfo>
+        <ProductDescriptionSection>
+          <ProductDetailsTitle>상품 태그</ProductDetailsTitle>
+          <ProductTagsContainer>
+            {tags?.map((tag) => (
+              <Tag key={tag} tag={tag} />
+            ))}
+          </ProductTagsContainer>
         </ProductDescriptionSection>
 
         <ProductMetaSection>
           <WriterInfo
-            profileImg={""}
-            name={detailData.ownerNickname}
-            updatedAt={detailData.updatedAt}
+            profileImg={null}
+            name={ownerNickname}
+            updatedAt={updatedAt}
             size="m"
           />
-          <LikeContainer>
-            <HeartIcon />
-            <LikeCount>
-              {Number(detailData.favoriteCount).toLocaleString()}
-            </LikeCount>
-          </LikeContainer>
+          <LikeButtonGroup likeCount={favoriteCount} />
         </ProductMetaSection>
       </ProductContentSection>
     </ResponsiveLayout>
@@ -101,7 +93,7 @@ const ProductDetailSection = ({ productId }) => {
 export default ProductDetailSection;
 
 const ResponsiveLayout = styled.div`
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   display: flex;
   gap: 2rem;
   border-bottom: 1px solid var(--gray200);
@@ -130,6 +122,9 @@ const ProductImage = styled.img`
 
 const ProductContentSection = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 `;
 
 const ProductHeader = styled.div`
@@ -156,11 +151,23 @@ const Price = styled.h2`
   font-weight: 600;
 `;
 
+const DropdownMenuWrapper = styled.div`
+  width: fit-content;
+  position: absolute;
+  top: 0;
+  right: 0;
+`;
+
 const ProductDescriptionSection = styled.div`
-  margin: 2rem 0;
   display: flex;
   flex-direction: column;
   gap: 1rem;
+`;
+
+const ProductDetailsTitle = styled.h3`
+  color: var(--gray600);
+  font-size: 1.6rem;
+  font-weight: 600;
 `;
 
 const ProductDetailsContent = styled.p`
@@ -182,30 +189,4 @@ const ProductMetaSection = styled.div`
   align-items: center;
   justify-content: space-between;
   gap: 2rem;
-`;
-
-const LikeContainer = styled.div`
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 50rem;
-  background-color: var(--white);
-  border: 1px solid var(--gray200);
-  cursor: pointer;
-
-  &:hover svg {
-    // todo: hover ui
-  }
-`;
-
-const LikeCount = styled.p`
-  font-size: 1.6rem;
-  color: var(--gray500);
-`;
-
-const ProductTitleWithActions = styled.div`
-  width: 100%;
-  display: flex;
-  justify-content: space-between;
 `;
